@@ -10,9 +10,9 @@
 - The system runs on Microsoft SQL Server and a legacy desktop application developed in Delphi.
 
 ## Client Requirements
-- Clients should be able to make medication orders remotely via a mobile app.
+- Clients wants registered customers to be able to make medication orders remotely via a mobile app.
 - Orders should be confirmed based on current stock levels in the pharmacy's database.
-- After confirmation, clients can pick up medication at the health facility or have it delivered.
+- After confirmation, customers can pick up medication at the health facility or have it delivered.
 - Payment can be made immediately or upon collection/receipt of medication.
 
 ## Required Solution
