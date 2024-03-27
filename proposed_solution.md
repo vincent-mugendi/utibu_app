@@ -1,10 +1,13 @@
 # Proposed Solution
 
-- The following are proposed solutions I made to
+- The following are solutions I'm proposing to address the requirements outlined for the Utibu Health Mobile App. I'm considering both my expertise and the most effective ways to achieve the desired outcomes  
 
 ## Frontend
 - **Use React Native for cross-platform compatibility and a native-like user experience.**
-  - **Reasoning:** React Native allows for the development of cross-platform mobile apps that can run on both iOS and Android, reducing development time and effort. It also provides a native-like user experience, enhancing the app's usability and performance.
+  - **Reasoning:** 
+    - React Native allows for the development of cross-platform mobile apps that can run on both iOS and Android, 
+    - This reduces development time and effort. 
+    - It also provides a native-like user experience and thus enhances the app's usability and performance.
 
 ## Backend
 - **Implement a Python Flask server to handle business logic and interact with the Microsoft SQL Server database. This choice leverages your expertise in Python and Flask.**
