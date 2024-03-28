@@ -1,43 +1,83 @@
--- Create Database
-CREATE DATABASE Utibu_db;
-
--- Use Database
-USE UtibuHealth;
-
--- Create Tables
-CREATE TABLE Medications
+-- customers table
+CREATE TABLE customers
 (
-    MedicationID INT PRIMARY KEY,
-    Name NVARCHAR(255) NOT NULL,
-    StockLevel INT NOT NULL
+    customer_id INT PRIMARY KEY,
+    name VARCHAR(255),
+    email VARCHAR(255),
+    phone_number VARCHAR(20),
+    address VARCHAR(255)
 );
 
-CREATE TABLE Orders
+-- medications table
+CREATE TABLE medications
 (
-    OrderID INT PRIMARY KEY,
-    MedicationID INT NOT NULL,
-    CustomerID INT NOT NULL,
-    Quantity INT NOT NULL,
-    OrderDate DATETIME NOT NULL,
-    Status NVARCHAR(50) NOT NULL
+    medication_id INT PRIMARY KEY,
+    name VARCHAR(255),
+    description TEXT,
+    stock_level INT,
+    price DECIMAL(10, 2)
 );
 
-CREATE TABLE Customers
+-- orders table
+CREATE TABLE orders
 (
-    CustomerID INT PRIMARY KEY,
-    Name NVARCHAR(255) NOT NULL,
-    Email NVARCHAR(255) NOT NULL,
-    Phone NVARCHAR(20) NOT NULL,
-    Address NVARCHAR(255) NOT NULL
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    medication_id INT,
+    quantity INT,
+    order_date DATE,
+    status VARCHAR(50),
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+    FOREIGN KEY (medication_id) REFERENCES medications(medication_id)
 );
 
-CREATE TABLE Payments
+-- sales table
+CREATE TABLE sales
 (
-    PaymentID INT PRIMARY KEY,
-    OrderID INT NOT NULL,
-    Amount DECIMAL(10, 2) NOT NULL,
-    PaymentDate DATETIME NOT NULL,
-    PaymentMethod NVARCHAR(50) NOT NULL
+    sale_id INT PRIMARY KEY,
+    order_id INT,
+    total_amount DECIMAL(10, 2),
+    payment_status VARCHAR(50),
+    sale_date DATE,
+    FOREIGN KEY (order_id) REFERENCES orders(order_id)
 );
 
--- Add more tables as needed...
+-- invoices table
+CREATE TABLE invoices
+(
+    invoice_id INT PRIMARY KEY,
+    sale_id INT,
+    invoice_number VARCHAR(50),
+    invoice_date DATE,
+    FOREIGN KEY (sale_id) REFERENCES sales(sale_id)
+);
+
+-- payments table
+CREATE TABLE payments
+(
+    payment_id INT PRIMARY KEY,
+    sale_id INT,
+    amount DECIMAL(10, 2),
+    payment_date DATE,
+    FOREIGN KEY (sale_id) REFERENCES sales(sale_id)
+);
+
+-- statements table
+CREATE TABLE statements
+(
+    statement_id INT PRIMARY KEY,
+    customer_id INT,
+    statement_date DATE,
+    balance DECIMAL(10, 2),
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
+
+-- inventory table
+CREATE TABLE inventory
+(
+    inventory_id INT PRIMARY KEY,
+    medication_id INT,
+    stock_level INT,
+    last_updated DATE,
+    FOREIGN KEY (medication_id) REFERENCES medications(medication_id)
+);
