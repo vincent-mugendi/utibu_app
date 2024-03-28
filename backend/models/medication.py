@@ -1,13 +1,12 @@
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+from db import db
 
 class Medication(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255), nullable=False)
+    __tablename__ = 'medications'
+    medication_id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255))
     description = db.Column(db.Text)
-    price = db.Column(db.Float, nullable=False)
-    stock_level = db.Column(db.Integer, nullable=False)
+    stock_level = db.Column(db.Integer)
+    price = db.Column(db.Float)
 
     def __repr__(self):
-        return f"<Medication {self.name}>"
+        return f"<Medication {self.medication_id}: {self.name}>"
