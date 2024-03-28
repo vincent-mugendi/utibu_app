@@ -1,7 +1,6 @@
 -- use utibu database
 USE utibu_db;
 
-
 -- customers table
 CREATE TABLE customers
 (
@@ -25,63 +24,83 @@ CREATE TABLE medications
 -- orders table
 CREATE TABLE orders
 (
-    order_id INT PRIMARY KEY,
+    order_id INT PRIMARY KEY AUTO_INCREMENT,
     customer_id INT,
     medication_id INT,
     quantity INT,
     order_date DATE,
-    status VARCHAR(50),
-    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
-    FOREIGN KEY (medication_id) REFERENCES medications(medication_id)
+    status VARCHAR
+(50),
+    FOREIGN KEY
+(customer_id) REFERENCES customers
+(customer_id),
+    FOREIGN KEY
+(medication_id) REFERENCES medications
+(medication_id)
 );
 
 -- sales table
 CREATE TABLE sales
 (
-    sale_id INT PRIMARY KEY,
+    sale_id INT PRIMARY KEY AUTO_INCREMENT,
     order_id INT,
-    total_amount DECIMAL(10, 2),
-    payment_status VARCHAR(50),
+    total_amount DECIMAL
+(10, 2),
+    payment_status VARCHAR
+(50),
     sale_date DATE,
-    FOREIGN KEY (order_id) REFERENCES orders(order_id)
+    FOREIGN KEY
+(order_id) REFERENCES orders
+(order_id)
 );
 
 -- invoices table
 CREATE TABLE invoices
 (
-    invoice_id INT PRIMARY KEY,
+    invoice_id INT PRIMARY KEY AUTO_INCREMENT,
     sale_id INT,
-    invoice_number VARCHAR(50),
+    invoice_number VARCHAR
+(50),
     invoice_date DATE,
-    FOREIGN KEY (sale_id) REFERENCES sales(sale_id)
+    FOREIGN KEY
+(sale_id) REFERENCES sales
+(sale_id)
 );
 
 -- payments table
 CREATE TABLE payments
 (
-    payment_id INT PRIMARY KEY,
+    payment_id INT PRIMARY KEY AUTO_INCREMENT,
     sale_id INT,
-    amount DECIMAL(10, 2),
+    amount DECIMAL
+(10, 2),
     payment_date DATE,
-    FOREIGN KEY (sale_id) REFERENCES sales(sale_id)
+    FOREIGN KEY
+(sale_id) REFERENCES sales
+(sale_id)
 );
 
 -- statements table
 CREATE TABLE statements
 (
-    statement_id INT PRIMARY KEY,
+    statement_id INT PRIMARY KEY AUTO_INCREMENT,
     customer_id INT,
     statement_date DATE,
-    balance DECIMAL(10, 2),
-    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+    balance DECIMAL
+(10, 2),
+    FOREIGN KEY
+(customer_id) REFERENCES customers
+(customer_id)
 );
 
 -- inventory table
 CREATE TABLE inventory
 (
-    inventory_id INT PRIMARY KEY,
+    inventory_id INT PRIMARY KEY AUTO_INCREMENT,
     medication_id INT,
     stock_level INT,
     last_updated DATE,
-    FOREIGN KEY (medication_id) REFERENCES medications(medication_id)
+    FOREIGN KEY
+(medication_id) REFERENCES medications
+(medication_id)
 );
