@@ -6,25 +6,24 @@ app = Flask(__name__)
 
 # Configuration for the SQLAlchemy database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://localhost/utibu_db?driver=ODBC+Driver+17+for+SQL+Server'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize the SQLAlchemy extension
 db = SQLAlchemy(app)
 
-# A simple model for testing
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
+@app.route('/order', methods=['POST'])
+def handle_order():
+    data = request.get_json()
+    customer_id = data.get('customer_id')
+    medication_id = data.get('mediaction_id')
+    quantity = data.get('quantity')
 
-    def __repr__(self):
-        return '<User %r>' % self.username
+    success, message = place_order(customer_id, medication_id, quantity)
 
-# Route for the root URL ('/')
-@app.route('/')
-def hello_world():
-    """
-    A simple route that returns a 'Hello, World!' message.
-    """
-    return 'Hello, World!'
+    if success:
+        return jsonify({'message': message}), 201
+    else:
+        return jsonify({'message': message}), 400
 
 # Run the Flask app
 if __name__ == '__main__':
