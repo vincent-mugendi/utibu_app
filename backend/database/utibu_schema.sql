@@ -1,3 +1,7 @@
+-- use utibu database
+USE utibu_db;
+
+
 -- customers table
 CREATE TABLE customers
 (
