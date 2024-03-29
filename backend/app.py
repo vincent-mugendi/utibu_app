@@ -3,6 +3,7 @@ from db import db
 from models.customer import Customer
 from models.medication import Medication
 from models.order import Order
+from datetime import datetime
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://vinnie:qwertyupi5@localhost/utibu_db'
@@ -11,13 +12,13 @@ db.init_app(app)
 
 
 # Endpoint to place an order
-# Endpoint to place an order
 @app.route('/order', methods=['POST'])
 def place_order():
     data = request.json
     customer_id = data.get('customer_id')
     medication_id = data.get('medication_id')
     quantity = data.get('quantity')
+    order_date = datetime.strptime(data.get('order_date'), '%Y-%m-%d').date()
 
     # Check if customer and medication exist
     customer = Customer.query.get(customer_id)
@@ -32,12 +33,13 @@ def place_order():
     if medication.stock_level < quantity:
         return jsonify({'error': 'Insufficient stock'}), 400
 
+    # Create order
+    new_order = Order(customer_id=customer_id, medication_id=medication_id, quantity=quantity, order_date=order_date)
+    db.session.add(new_order)
+    db.session.commit()
+
     # Update stock level
     medication.stock_level -= quantity
-
-    # Create order
-    new_order = Order(customer_id=customer_id, medication_id=medication_id, quantity=quantity)
-    db.session.add(new_order)
     db.session.commit()
 
     return jsonify({'message': 'Order placed successfully'}), 201
