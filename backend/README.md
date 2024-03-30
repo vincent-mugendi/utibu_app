@@ -13,14 +13,14 @@
 
 
 ## Getting Started
-    - To set up the backend locally, follow these stepe
-        1. **Clone the Repository**
+- To set up the backend locally, follow these steps:
+    1. **Clone the Repository**
         git clone https:://github.com/vincent-mugendi/utibu_app.git
 
-        2. **Install Dependancies**
+    2. **Install Dependancies**
         'cd backend' and then 'pip install -r requirements.txt'
 
-        3. **Set Environment Variables**
+    3. **Set Environment Variables**
         Create a `.env` file in the root directory and add the following variables:
 
             ```makefile
@@ -30,13 +30,13 @@
             ```
         - Replace username and password with your MySQL credentials.
 
-        4. **Initialize the Database**
+    4. **Initialize the Database**
         - Run `flask db upgrade` to initiliaze database
 
-        5. **Apply Migrations**
+    5. **Apply Migrations**
         - Run flask db upgrade to apply the initial database migrations.
 
-        6. **Start Server: `flask run`**
+    6. **Start Server: `flask run`**
         - The backend server should now be running locally
     
 
