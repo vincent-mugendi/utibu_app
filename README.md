@@ -43,7 +43,7 @@ It allows registered customers to make medication orders remotely and check thei
 
 ## Preview
 
-- Test the app in [FlutterFlow](https://app.flutterflow.io/share/utibu-frontend-m0dvjo) for a preview of the UI.
+- Preview app in [FlutterFlow](https://app.flutterflow.io/share/utibu-frontend-m0dvjo) for a preview of the UI.
 
 ## Screenshots
 
@@ -60,7 +60,7 @@ It allows registered customers to make medication orders remotely and check thei
 
 ## Contribution
 
-We welcome contributions to the Utibu Health Mobile App. If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
+Contributions are welcome. If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
 
 ## License
 
