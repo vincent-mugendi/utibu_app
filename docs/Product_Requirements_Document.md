@@ -26,7 +26,7 @@ Utibu Health is a health facility that caters to patients with chronic condition
 - Maintain compatibility with the existing technology stack, including Microsoft SQL Server and the legacy desktop application developed in Delphi.
 
 ### 4. Technology Stack
-- Frontend: React Native
+- Frontend: Dart with Flutter
 - Backend: Python Flask
 - Database: Microsoft SQL Server
 - Integration: RESTful APIs
