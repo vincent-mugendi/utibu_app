@@ -47,7 +47,7 @@ It allows registered customers to make medication orders remotely and check thei
 
 ## Screenshots
 
-<div style="overflow-x: auto; white-space: nowrap;">
+<div style="overflow-x: auto; width: 100%;">
     <img src="./frontend/assets/Screen0.png" style="display: inline-block; width: 300px; height: 200px; margin-right: 10px;">
     <img src="./frontend/assets/Screen2.png" style="display: inline-block; width: 300px; height: 200px; margin-right: 10px;">
     <img src="./frontend/assets/Screen3.png" style="display: inline-block; width: 300px; height: 200px; margin-right: 10px;">
