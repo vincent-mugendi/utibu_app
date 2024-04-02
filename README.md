@@ -1,9 +1,8 @@
-![Utibu Health Logo](logo.png)
-
 # Utibu Health Mobile App
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-![Utibu Health Logo](./frontend/assets/utibu_logo.png)
+
+![Utibu Health Logo](./frontend/assets/utibu_logo.gif)
 
 The Utibu Health Mobile App is a cross-platform mobile application designed to cater to patients with chronic conditions. 
 
