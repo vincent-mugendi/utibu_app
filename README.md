@@ -16,7 +16,7 @@ It allows registered customers to make medication orders remotely and check thei
 
 ## Technology Stack
 
-- **Frontend**: [Dart with Flutter](./frontend/README.md)
+- **Frontend**: [Dart with Flutter](./frontend/utibu_frontend/README.md)
 - **Backend**: [Python Flask](./backend/README.md)
 - **Database**: Microsoft SQL Server
 - **Integration**: RESTful APIs
