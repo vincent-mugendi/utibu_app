@@ -35,7 +35,7 @@ It allows registered customers to make medication orders remotely and check thei
 ## Installation
 
 1. Clone the repository: `git clone https://github.com/vincent-mugendi/utibu_app.git`
-2. Install dependencies: `cd project-name` then `npm install`
+2. Install dependencies: `cd utibu_app/frontend/utibu_frontend` then `npm install`
 3. Set up environment variables (see `.env.example` for reference).
 4. Initialize the database: `flask db upgrade`
 5. Apply migrations: `flask db upgrade`
